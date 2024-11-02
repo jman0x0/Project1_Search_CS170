@@ -30,3 +30,5 @@ Other optimizations could be deleting traces for dead nodes, but I didn't have t
 **Findings**
 
 I found that the Euclidean distance heuristic performed the best out of the three. From the lecture we know that the Manhattan Distance heuristic is an admissible, Euclidean distance is a smaller estimate so it is also admissible. However, compared to the Misplaced Tile Heuristic it is a better estimate since it doesn't just merely count misplaced tiles as a single point. The uniform cost search heuristic/algorithm was the worst, which makes sense since it has no means of determining truly how close a node is to the goal state.
+
+Ultimately, for smaller puzzles such as the 8 puzzle, a uniform cost search would be applicable and suitable for the most part. However, admissibile heuristics, in particular the Euclidean distance heuristic, are much more desirable when the problem is harder as better states will be expanded versus worst states.
