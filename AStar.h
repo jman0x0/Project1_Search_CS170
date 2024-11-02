@@ -32,6 +32,9 @@ public:
 		std::unordered_map<std::bitset<150>, bool> explored;
 		std::list<ProblemTrace> nodes;
 		queue.emplace(nullptr, std::move(initial), 0, 0);
+		std::cout << "Expanding state " << '\n';
+		std::cout << queue.top().getProblemState()->toString() << '\n';
+		bool first{ true };
 		while (!queue.empty()) {
 			maxQueueSize = std::max(maxQueueSize, queue.size());
 			auto& top{ queue.top() };
@@ -40,6 +43,11 @@ public:
 				queue.pop();
 				continue;
 			}
+			if (!first) {
+				std::cout << "The best state to expand with g(n) = " << top.getCost() << " and h(n) = " << top.getHeuristicCost() << " is...\n";
+				std::cout << top.getProblemState()->toString() << " Expanding this node...\n";
+			}
+			first = false;
 			if (top.getProblemState()->matches(goal.get())) {
 				std::vector<Inner> solution;
 
