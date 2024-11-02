@@ -166,6 +166,7 @@ int main() {
 			std::cout << "There is no solution for this puzzle, please try another!\n";
 		}
 		else {
+			std::cout << "=====TRACE SOLUTION=====\n";
 			for (auto& node : trace.solution) {
 				std::cout << "Expanding state\n";
 				std::cout << node.board << '\n';
