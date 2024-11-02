@@ -13,3 +13,11 @@ Third, I had difficulty managing memory and abstract class instances. Additional
 The interface portion was not so difficult.
 
 **Design**
+My design consists of classes ProblemTrace, Problem, AStar, and NPuzzle. 
+
+ProblemTrace is more of a node esque class that keep tracks of the current problem state and has methods pertaining to the heuristic cost, uniform cost, and the previous state instances.
+
+Problem is an abstract class to represent any arbtirary problem state. In particular, it a match method, getReachableNodes method, getHash method, toString method, and computeHeuristic method. Respectively, matching method is used for comparing a state to a goal, getHash is to compute a unique hash such that exploration can be tracked, toString converts a state to a readable means, computeHeuristic estimates the cost from a base node to a goal node.
+
+NPuzzle inherits from Problem class and keeps track of the Puzzle board through a 2D vector member variable named board. It also overrides all the methods from the roblem class.
+
