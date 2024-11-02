@@ -21,3 +21,12 @@ Problem is an abstract class to represent any arbtirary problem state. In partic
 
 NPuzzle inherits from Problem class and keeps track of the Puzzle board through a 2D vector member variable named board. It also overrides all the methods from the roblem class.
 
+**Optimization**
+
+I did attempt to optimize this problem through the use of a priority queue data type which has O(n log n) insertion and removal. Likewise, I used an unordered map and bitset to track all explored nodes in a more memory efficient and time efficient manner.
+
+Other optimizations could be deleting traces for dead nodes, but I didn't have to implement this. This wuld help with memory storage.
+
+**Findings**
+
+I found that the Euclidean distance heuristic performed the best out of the three. From the lecture we know that the Manhattan Distance heuristic is an admissible, Euclidean distance is a smaller estimate so it is also admissible. However, compared to the Misplaced Tile Heuristic it is a better estimate since it doesn't just merely count misplaced tiles as a single point. The uniform cost search heuristic/algorithm was the worst, which makes sense since it has no means of determining truly how close a node is to the goal state.
